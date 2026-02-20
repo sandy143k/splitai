@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --purple: #7b2fff;
+  --blue:   #0a6fff;
+  --neon-p: #c040ff;
+  --neon-b: #00cfff;
+  --dark:   #04030c;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--dark);
+  color: #fff;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0a0812; }
+::-webkit-scrollbar-thumb { background: #3b1a7a; border-radius: 2px; }
+
+/* Glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(130, 80, 255, 0.18);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+}
+
+/* Neon text */
+.text-neon-purple { color: #c040ff; text-shadow: 0 0 20px rgba(192,64,255,0.6); }
+.text-neon-blue   { color: #00cfff; text-shadow: 0 0 20px rgba(0,207,255,0.6); }
+
+/* Brand gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #c040ff 0%, #7b2fff 40%, #0a6fff 80%, #00cfff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glow button */
+.btn-glow {
+  background: linear-gradient(135deg, #7b2fff, #0a6fff);
+  box-shadow: 0 0 30px rgba(123,47,255,0.4), 0 0 60px rgba(10,111,255,0.2);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 40px rgba(123,47,255,0.7), 0 0 80px rgba(10,111,255,0.4);
+  transform: translateY(-1px);
+}
+
+/* Waveform bars animation */
+@keyframes wave-bar {
+  0%, 100% { transform: scaleY(0.3); }
+  50%       { transform: scaleY(1.0); }
+}
+.wave-bar { transform-origin: bottom; }
+
+/* Shimmer */
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Progress pulse */
+@keyframes progressPulse {
+  0%, 100% { opacity: 0.8; }
+  50%       { opacity: 1; }
+}
